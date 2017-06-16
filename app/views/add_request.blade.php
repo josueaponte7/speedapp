@@ -89,7 +89,7 @@
     </form>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-cgIhpop4zKFZmXr8VwYsSRI1bwrajFs&v=3.exp&sensor=false&libraries=places"></script>
 <style>
     #map-canvas {
         height: 300px;
@@ -194,7 +194,7 @@
 </script>
 <script type="text/javascript">
 
-// provider manual automatic toggle script 
+// provider manual automatic toggle script
 
     $(document).ready(function () {
         var latitude = $("#latitude").val();

@@ -6,7 +6,7 @@
 
     @if(Session::has('message'))
     <div class="alert alert-{{ Session::get('type') }}">
-        <b>{{ Session::get('message') }}</b> 
+        <b>{{ Session::get('message') }}</b>
     </div>
     @endif
 
@@ -18,13 +18,13 @@
 
     @if(Session::has('status') && Session::get('status') == 1)
     <div class="alert alert-success">
-        <b>A new {{trans('customize.Provider')}} has accepted your request.</b> 
+        <b>A new {{trans('customize.Provider')}} has accepted your request.</b>
     </div>
     @endif
 
     @if(isset($message))
     <div class="alert alert-success">
-        <b>{{$message}}</b> 
+        <b>{{$message}}</b>
     </div>
     @endif
     <div class="content-panel" style="min-height:600px;">
@@ -76,7 +76,7 @@
 
                             </div>
 
-                        </div>              
+                        </div>
 
                         <div class="col-lg-12">
                             <form id="eta_form" style='display:none; padding-top:20px;' method="post" action="<?php echo URL::Route('etaweb') ?>">
@@ -101,7 +101,7 @@
 <?php } ?>
 
 <?php if (Session::has('status') && Session::get('status') == 5 && $payment_mode == 2 && $request->payment_id == NULL) { ?>
-                    <div class="col-lg-7">  
+                    <div class="col-lg-7">
                         <a href="{{route('user/paybypalweb',Session::get('request_id'))}}" data-paypal-button="true"><img src="//www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" alt="Pay Now" /></a>
                     </div>
 <?php } elseif (Session::has('status') && Session::get('status') == 5) { ?>
@@ -182,7 +182,7 @@
 </script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-cgIhpop4zKFZmXr8VwYsSRI1bwrajFs&v=3.exp&sensor=false&libraries=places"></script>
 <script type="text/javascript">
      function initialize_map(lat, lng) {
 
@@ -266,4 +266,4 @@
     tour.start();
 </script>
 
-@stop 
+@stop

@@ -10,7 +10,7 @@
          $('#map').show();
          });
          };*/
-    </script>    
+    </script>
     </br>
     <div class="col-md-8">
         <input type="text" class="form-control" id="my-address" placeholder="Please enter your address">
@@ -28,7 +28,16 @@
     <input type="hidden" name="longitude" id="longitude">
 </div>
 <!-- map page js starts -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-cgIhpop4zKFZmXr8VwYsSRI1bwrajFs&v=3.exp&sensor=false&libraries=places">
+</script> --}}
+
+
+  <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqmJM6EkPcKyaRwZ3hQFCUZonvhBhXXis&sensor=false&libraries=places">
+</script>
+
+
+
 <script type="text/javascript">
 
             var popup_pin = "";
@@ -182,20 +191,20 @@ if (isset($admin)) {
                                             position: point,
                                             icon: icon.icon,
                                             shadow: icon.shadow});
-                                        /*marker = new google.maps.Marker({
+                                        marker = new google.maps.Marker({
                                          map: map,
                                          position: point,
                                          icon: {
                                          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                                         //path: 'M150 0 L75 200 L225 200 Z',
-                                         //scale: .1,
+                                         path: 'M150 0 L75 200 L225 200 Z',
+                                         scale: .1,
                                          scale: 6,
                                          fillColor: color,
                                          fillOpacity: 0.8,
                                          strokeWeight: 2,
                                          rotation: parseFloat(markers[i].getAttribute("angl")) //this is how to rotate the pointer
                                          },
-                                         shadow: icon.shadow});*/
+                                         shadow: icon.shadow});
                                         newmarkersArray.push(marker);
                                         bindInfoWindow(marker, map,
                                                 infoWindow, html, type, name, popup_pin);
@@ -264,31 +273,35 @@ if (isset($admin)) {
             }
 
             function codeAddress() {
+
                 geocoder = new google.maps.Geocoder();
                 var address = document.getElementById("my-address").value;
                 geocoder.geocode({'address': address}, function (results, status) {
+                       //alert('estoy dentro');
+                        console.log(status);
+                        console.log(google.maps.GeocoderStatus.OK);
                     if (status == google.maps.GeocoderStatus.OK) {
 
                         var latitude = results[0].geometry.location.lat();
                         var longitude = results[0].geometry.location.lng();
-                        // initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+                        initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
                         load(latitude, longitude);
-                        //         var latlng = new google.maps.LatLng(latitude, longitude);
-                        // var map = new google.maps.Map(document.getElementById('map'), {
-                        //     center: latlng,
-                        //     zoom: 11,
-                        //     mapTypeId: google.maps.MapTypeId.ROADMAP
-                        // });
-                        // var marker = new google.maps.Marker({
-                        //     position: latlng,
-                        //     map: map,
-                        //     title: 'Set lat/lon values for this property',
-                        //     draggable: true
-                        // });
+                         var latlng = new google.maps.LatLng(latitude, longitude);
+                         var map = new google.maps.Map(document.getElementById('map'), {
+                             center: latlng,
+                             zoom: 11,
+                             mapTypeId: google.maps.MapTypeId.ROADMAP
+                         });
+                         var marker = new google.maps.Marker({
+                             position: latlng,
+                             map: map,
+                             title: 'Set lat/lon values for this property',
+                             draggable: true
+                         });
                     }
 
                     else {
-                        //alert("Geocode was not successful for the following reason: " + status);
+                        alert("Geocode was not successful for the following reason: " + status);
                     }
                 });
             }

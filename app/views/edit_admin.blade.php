@@ -3,7 +3,7 @@
 
 @section('content')
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-cgIhpop4zKFZmXr8VwYsSRI1bwrajFs&v=3.exp&sensor=false&libraries=places"></script>
 <style>
   #map-canvas {
     height: 300px;
@@ -46,7 +46,7 @@
             document.getElementById('latitude').value = results[0].geometry.location.lat();
             document.getElementById('longitude').value = results[0].geometry.location.lng();
             initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-            } 
+            }
 
             else {
             //alert("Geocode was not successful for the following reason: " + status);
@@ -80,9 +80,9 @@
 <script>
  // source map script
      var gmarkers = [];
-      
+
       function initialize_map(lat,lng) {
-  
+
         latitude = parseFloat(lat);
         longitude = parseFloat(lng);
           var marker_icon = '<?php echo asset_url()."/web/images/map_uberx.png"; ?>';
@@ -109,13 +109,13 @@
             var geocoder= new google.maps.Geocoder();
             document.getElementById("latitude").value =latLng.lat();
             document.getElementById("longitude").value =latLng.lng();
-            
+
 
             var latlngplace = new google.maps.LatLng(latLng.lat(), latLng.lng());
               geocoder.geocode({'latLng': latlngplace}, function(results, status){
               if (status == google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
-            document.getElementById("my-address").value =results[1].formatted_address;                          
+            document.getElementById("my-address").value =results[1].formatted_address;
                         } else {
                           alert('No Address Found');
                         }
@@ -125,7 +125,7 @@
             });
 
           });
-       
+
       }
 
     </script>
@@ -160,7 +160,7 @@
               <input type="button" id="getCords" class="btn btn-success" style="float:center;" value="Find Location" onClick="codeAddress(1);"></input>
               <br>
               <br>
-               
+
               <div id="map-canvas" style="width:100%;"></div>
               <input type="hidden" name="latitude" id="latitude">
               <input type="hidden" name="longitude" id="longitude">
@@ -168,12 +168,12 @@
 
                 </div>
                 <div class="box-footer">
-                                  
-                <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-success">Update Changes</button>                       
+
+                <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-success">Update Changes</button>
                 </div>
                 </form>
                 </div>
-                     
+
 
 <?php
 if($success == 1) { ?>
