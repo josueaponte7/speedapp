@@ -20,6 +20,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .idea/*
 /.idea/
 /.phpintel/
+/vendor/
 /application/views/twig/cache
 ## Sublime Text cache files
 *.tmlanguage.cache
