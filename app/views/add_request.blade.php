@@ -194,7 +194,7 @@
 </script>
 <script type="text/javascript">
 
-// provider manual automatic toggle script
+// provider manual automatic toggle script 
 
     $(document).ready(function () {
         var latitude = $("#latitude").val();

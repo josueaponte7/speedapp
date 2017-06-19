@@ -121,25 +121,22 @@
                 <section class="sidebar">
                     <ul class="sidebar-menu">
 
-
-                        <li id="dashboard" title="Dashboard">
-                            <a href="{{ URL::Route('AdminReport') }}"><i class="fa fa-dashboard"></i> <span>{{trans('customize.Dashboard'); }}</span></a>
+                        <?php  foreach (modulos() as $modulo) {?>
+                        <li id="dashboard" title="{{ $modulo->title }}">
+                            <a href="{{ URL::Route($modulo->route) }}"><i class="{{ $modulo->icono }}"></i> <span>{{trans($modulo->modulo); }}</span></a>
                         </li>
+                        <?php  } ?>
 
-                        <li id="map-view" title="Map View">
-                            <a href="{{ URL::Route('AdminMapview') }}"><i class="fa fa-map-marker"></i> <span>{{trans('customize.map_view'); }}</span></a>
-                        </li>
-
-                        <li id="walkers" title="Providers" >
+                        {{-- <li id="walkers" title="Providers" >
                             <a href="{{ URL::Route('AdminProviders') }}"><i class="fa fa-users"></i> <span>{{trans('customize.Provider').'s'; }}</span></a>
-                        </li> 
+                        </li>
                         <li id="walks" title="Requests">
                             <a href="{{ URL::Route('AdminRequests') }}"><i class="fa fa-location-arrow"></i> <span>{{ trans('customize.Request').'s'; }}</span></a>
                         </li>
                         <li id="owners" title="Users">
                             <a href="{{ URL::Route('AdminUsers') }}"><i class="fa fa-users"></i> <span>{{ trans('customize.User').'s'; }}</span></a>
-                        </li>
-                        <li id="reviews" title="Reviews">
+                        </li> --}}
+                        {{-- <li id="reviews" title="Reviews">
                             <a href="{{ URL::Route('AdminReviews') }}"><i class="fa fa-thumbs-o-up"></i> <span>{{ trans('customize.Reviews'); }}</span></a>
                         </li>
                         <li id="information" title="Information">
@@ -150,8 +147,8 @@
                         </li>
                         <li id="document-type" title="Provider Types">
                             <a href="{{ URL::Route('AdminDocumentTypes') }}"><i class="fa fa-file-text-o"></i> <span>{{ trans('customize.Documents'); }}</span></a>
-                        </li>
-                        <li id="promo_code" title="Promo Code">
+                        </li> --}}
+                        {{-- <li id="promo_code" title="Promo Code">
                             <a href="{{ URL::Route('AdminPromoCodes') }}"><i class="fa fa-gift"></i> <span>{{ trans('customize.promo_codes'); }}</span></a>
                         </li>
                         <li id="keywords" title="Kewords">
@@ -162,7 +159,7 @@
                         </li>
                         <li id="settings" title="Setings">
                             <a href="{{ URL::Route('AdminSettings') }}"><i class="fa fa-cogs"></i> <span>{{trans('customize.Settings');}}</span></a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </section>

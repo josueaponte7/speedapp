@@ -106,7 +106,7 @@
         <![endif]-->
 
 
-        @if (isset($page) && $page == 'request-trip')
+        @if (isset($page) && $page == 'request-trip') 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-cgIhpop4zKFZmXr8VwYsSRI1bwrajFs&v=3.exp&sensor=false&libraries=places"></script>
         <style>
             #map-canvas {

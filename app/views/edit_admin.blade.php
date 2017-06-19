@@ -46,7 +46,7 @@
             document.getElementById('latitude').value = results[0].geometry.location.lat();
             document.getElementById('longitude').value = results[0].geometry.location.lng();
             initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-            }
+            } 
 
             else {
             //alert("Geocode was not successful for the following reason: " + status);
@@ -63,7 +63,7 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successFunction);
         } else {
-            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+            alert('Parece que la Geolocalización, necesaria para esta página, no está habilitada en tu navegador. Utilice un navegador que lo admita.');
         }
 
         function successFunction(position) {
@@ -80,9 +80,9 @@
 <script>
  // source map script
      var gmarkers = [];
-
+      
       function initialize_map(lat,lng) {
-
+  
         latitude = parseFloat(lat);
         longitude = parseFloat(lng);
           var marker_icon = '<?php echo asset_url()."/web/images/map_uberx.png"; ?>';
@@ -109,13 +109,13 @@
             var geocoder= new google.maps.Geocoder();
             document.getElementById("latitude").value =latLng.lat();
             document.getElementById("longitude").value =latLng.lng();
-
+            
 
             var latlngplace = new google.maps.LatLng(latLng.lat(), latLng.lng());
               geocoder.geocode({'latLng': latlngplace}, function(results, status){
               if (status == google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
-            document.getElementById("my-address").value =results[1].formatted_address;
+            document.getElementById("my-address").value =results[1].formatted_address;                          
                         } else {
                           alert('No Address Found');
                         }
@@ -125,7 +125,7 @@
             });
 
           });
-
+       
       }
 
     </script>
@@ -143,24 +143,24 @@
             <form method="post" action="{{ URL::Route('AdminAdminsUpdate') }}"  enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $admin->id ?>">
            <div class="form-group">
-                      <label>User Name</label>
+                      <label>Email de Usuario</label>
                           <input class="form-control" type="text" name="username" value="{{$admin->username}}">
                       </div>
                       <div class="form-group">
-                          <label>Old Password</label>
-                          <input class="form-control" type="password" name="old_password" placeholder="Old Password">
+                          <label>Contraseña anterior</label>
+                          <input class="form-control" type="password" name="old_password" placeholder="Contraseña anterior">
                       </div>
                       <div class="form-group">
-                          <label>New Password</label>
-                          <input type="password" class="form-control" name="new_password" placeholder="New Password">
+                          <label>Contraseña Nueva</label>
+                          <input type="password" class="form-control" name="new_password" placeholder="Contraseña Nueva">
                       </div>
                       <div class="form-group">
-                        <label>Address</label><br>
-                      <input type="text" class="form-control" name="my_address" id="my-address" placeholder="Please enter address" style="width:40%;float:left;margin-right:20px;">
-              <input type="button" id="getCords" class="btn btn-success" style="float:center;" value="Find Location" onClick="codeAddress(1);"></input>
+                        <label>Dirección</label><br>
+                      <input type="text" class="form-control" name="my_address" id="my-address" placeholder="Por Favor Ingrese la Dirección" style="width:40%;float:left;margin-right:20px;">
+              <input type="button" id="getCords" class="btn btn-success" style="float:center;" value="Buscar ubicación" onClick="codeAddress(1);"></input>
               <br>
               <br>
-
+               
               <div id="map-canvas" style="width:100%;"></div>
               <input type="hidden" name="latitude" id="latitude">
               <input type="hidden" name="longitude" id="longitude">
@@ -168,23 +168,23 @@
 
                 </div>
                 <div class="box-footer">
-
-                <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-success">Update Changes</button>
+                                  
+                <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-success">Actualizar Cambios</button>                       
                 </div>
                 </form>
                 </div>
-
+                     
 
 <?php
 if($success == 1) { ?>
 <script type="text/javascript">
-    alert('Service Updated Successfully');
+    alert('Servicio Actualizado Correctamente');
 </script>
 <?php } ?>
 <?php
 if($success == 2) { ?>
 <script type="text/javascript">
-    alert('Sorry Something went Wrong');
+    alert('Perdón, algo salió mal');
 </script>
 <?php } ?>
 @stop

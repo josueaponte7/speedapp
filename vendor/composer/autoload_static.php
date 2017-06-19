@@ -2390,6 +2390,7 @@ class ComposerStaticInit57af5e79cc5c11f5e3f09546cf165759
         'CreateDogsTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_09_25_060804_create_dogs_table.php',
         'CreateIconsTable' => __DIR__ . '/../..' . '/app/database/migrations/2015_04_02_123726_create_icons_table.php',
         'CreateInstallationSettingsTable' => __DIR__ . '/../..' . '/app/database/migrations/2015_01_10_110711_create_installation_settings_table.php',
+        'CreateModulosTable' => __DIR__ . '/../..' . '/app/database/migrations/2017_06_19_012613_create_modulos_table.php',
         'CreateOwnersTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_09_25_044324_create_owners_table.php',
         'CreatePaymentTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_10_10_025736_create_payment_table.php',
         'CreatePromoHistoryTable' => __DIR__ . '/../..' . '/app/database/migrations/2015_04_15_110351_create_promo_history_table.php',

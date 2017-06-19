@@ -70,7 +70,7 @@
     <body class="login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <h2 style="color:#fff;">Welcome to<br><?= Config::get('app.website_title') ?></h2>
+            <h2 style="color:#fff;">Bienvenido a<br><?= Config::get('app.website_title') ?></h2>
             <img src="<?php echo asset_url(); ?><?php echo $logo; ?>" style="height:50px;">
         </div>
         <!-- END LOGO -->
@@ -80,32 +80,32 @@
             <?php
             $default_user_field_value = "";
             $default_pass_field_value = "";
-            if ($button == 'Create') {
-                $default_user_field_value = "admin@taxinow.com";
-                $default_pass_field_value = "1234";
+            if ($button == 'Registrarse') {
+                $default_user_field_value = "admin@speedapp.com";
+                $default_pass_field_value = "1234567";
             }
             ?>
 
             <form class="form-vertical login-form" action="{{ URL::Route('AdminVerify') }}" method="post">
-                <h3 class="form-title">Login to your account</h3>
+                <h3 class="form-title" style="text-align: center;">Ingrese a su cuenta</h3>
 
                 <div class="control-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
                     <div class="controls">
                         <div class="input-icon left">
                             <i class="icon-user"></i>
-                            <input name="username" type="text" class="m-wrap placeholder-no-fix" autocomplete="off" placeholder="Username" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your username / email" data-parsley-required value="<?= $default_user_field_value ?>">
+                            <input name="username" type="text" class="m-wrap placeholder-no-fix" autocomplete="off" placeholder="Email" data-parsley-errors-container="#error-container" data-parsley-error-message="Ingrese su Email" data-parsley-required value="<?= $default_user_field_value ?>">
 
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <label class="control-label visible-ie8 visible-ie9">Contraseña</label>
                     <div class="controls">
                         <div class="input-icon left">
                             <i class="icon-lock"></i>
-                            <input name="password" class="m-wrap placeholder-no-fix" autocomplete="off" type="password" placeholder="Password" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your password" data-parsley-required value="<?= $default_pass_field_value ?>">
+                            <input name="password" class="m-wrap placeholder-no-fix" autocomplete="off" type="password" placeholder="Contraseña" data-parsley-errors-container="#error-container" data-parsley-error-message="Ingrese su Contraseña" data-parsley-required value="<?= $default_pass_field_value ?>">
 
                         </div>
                     </div>
