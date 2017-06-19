@@ -4733,6 +4733,7 @@ class GCM {
         $users_id = Input::get('users_id');
         $modulos_id = Input::get('modulos_id');
         $arr1 = explode(',', $modulos_id);
+        Permisos::where('admin_id', $users_id)->delete();
         for ($i=0; $i < count($arr1) ; $i++) {
            $permisos = new Permisos;
            $permisos->admin_id = $users_id;

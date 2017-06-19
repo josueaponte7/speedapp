@@ -28,20 +28,34 @@ function modulos()
 
 function get_users()
 {
-    echo Session::get('id');
     $users = Admin::all();
     return $users;
 }
 
 function get_permisos()
 {
+
     $admin_id = Session::get('admin_id');
+
     $modulos = DB::table('modulos')
     ->join('permisos', 'modulos.id', '=', 'permisos.modulo_id')
     ->where('admin_id',$admin_id)
     ->select('modulos.id', 'modulos.modulo', 'modulos.route', 'modulos.icono', 'modulos.title')
     ->get();
+
     return $modulos;
+}
+
+function get_permisos_user($modulo_id)
+{
+
+    $admin_id = Session::get('admin_id');
+    $modulos_count = DB::table('permisos')
+    ->where('admin_id',$admin_id)
+    ->where('modulo_id',$modulo_id)
+    ->select('modulo_id')
+    ->count();
+    return $modulos_count;
 }
 
 function unlink_image($image) {

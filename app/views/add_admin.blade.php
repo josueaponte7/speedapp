@@ -28,39 +28,42 @@
                 <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-success">Agregar Administrador</button>
             </div>
         </form>
-    </div>
-    <div class="form-group">
-        <label>Usuarios:</label>
-        <select name="users_id" id="users_id">
-            <option value="0">Seleccione</option>
-            <?php $i=1; foreach (get_users() as $user) {?>
-            <option value="{{ $user->id }}">{{ $user->username }}</option>
-            <?php $i++; } ?>
-        </select>
-    </div>
-    <?php get_users()?>
-    <div class="form-group">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Modulo</th>
-                    <th>Activar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $i=1; foreach (modulos() as $modulo) {?>
-                <tr>
-                    <td>{{ $i }} </td>
-                    <td> {{  trans($modulo->modulo) }}</td>
-                    <td> <input class="modulos_id" type="checkbox" name="modulo_id" value="{{ $modulo->id }}"></td>
-                </tr>
+
+        <div class="form-group">
+            <label>Usuarios:</label>
+            <select name="users_id" id="users_id">
+                <option value="0">Seleccione</option>
+                <?php $i=1; foreach (get_users() as $user) {?>
+                <option value="{{ $user->id }}">{{ $user->username }}</option>
                 <?php $i++; } ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="box-footer">
-        <button type="button" id="btadd" class="btn btn-flat btn-block btn-primary">Agregar Modulos</button>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Modulo</th>
+                        <th>Activar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i=1; foreach (modulos() as $modulo) {
+                        $checked = (get_permisos_user($modulo->id) > 0) ? 'checked="checked"':'';
+                    ?>
+                    <tr>
+                        <td>{{ $i }} </td>
+                        <td> {{  trans($modulo->modulo) }}</td>
+                        <td> <input class="modulos_id"  type="checkbox" name="modulo_id" value="{{ $modulo->id }}" {{ $checked }}></td>
+                    </tr>
+                    <?php $i++; } ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-footer">
+            <button type="button" id="btadd" class="btn btn-flat btn-block btn-primary">Agregar Modulos</button>
+        </div>
     </div>
 </div>
 
@@ -78,9 +81,11 @@
                 modulos_id = modulos_id.substring(0,(modulos_id.length - 1));
                 $.post("{{ URL::Route('AdminPermisos') }}", {users_id: users_id, modulos_id:modulos_id}, function(data, textStatus, xhr) {
                     if(data == 'ok'){
-                        location.reload();
+                       window.location.reload(true);
                     }
                 });
+            }else{
+                alert('Debe seleccionar un usuario');
             }
         })
     });
