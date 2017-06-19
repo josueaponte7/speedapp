@@ -126,39 +126,6 @@
                             <a href="{{ URL::Route($modulo->route) }}"><i class="{{ $modulo->icono }}"></i> <span>{{trans($modulo->modulo); }}</span></a>
                         </li>
                         <?php  } ?>
-
-                        {{--
-                        <li id="walks" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans('').'s'; }}</span></a>
-                        </li>
-                        <li id="owners" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans('').'s'; }}</span></a>
-                        </li> --}}
-                        {{-- <li id="reviews" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li>
-                        <li id="information" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li>
-                        <li id="provider-type" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li>
-                        <li id="document-type" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li> --}}
-                        {{-- <li id="promo_code" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li>
-                        <li id="keywords" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
-                        </li>
-                        <li id="payments" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{trans('');}}</span></a>
-                        </li>
-                        <li id="settings" title="">
-                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{trans('');}}</span></a>
-                        </li> --}}
-
                     </ul>
                 </section>
                 <!-- /.sidebar -->
