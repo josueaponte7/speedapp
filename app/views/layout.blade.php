@@ -127,38 +127,36 @@
                         </li>
                         <?php  } ?>
 
-                        {{-- <li id="walkers" title="Providers" >
-                            <a href="{{ URL::Route('AdminProviders') }}"><i class="fa fa-users"></i> <span>{{trans('customize.Provider').'s'; }}</span></a>
+                        {{--
+                        <li id="walks" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans('').'s'; }}</span></a>
                         </li>
-                        <li id="walks" title="Requests">
-                            <a href="{{ URL::Route('AdminRequests') }}"><i class="fa fa-location-arrow"></i> <span>{{ trans('customize.Request').'s'; }}</span></a>
-                        </li>
-                        <li id="owners" title="Users">
-                            <a href="{{ URL::Route('AdminUsers') }}"><i class="fa fa-users"></i> <span>{{ trans('customize.User').'s'; }}</span></a>
+                        <li id="owners" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans('').'s'; }}</span></a>
                         </li> --}}
-                        {{-- <li id="reviews" title="Reviews">
-                            <a href="{{ URL::Route('AdminReviews') }}"><i class="fa fa-thumbs-o-up"></i> <span>{{ trans('customize.Reviews'); }}</span></a>
+                        {{-- <li id="reviews" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li>
-                        <li id="information" title="Information">
-                            <a href="{{ URL::Route('AdminInformations') }}"><i class="fa fa-info-circle"></i> <span>{{ trans('customize.Information'); }}</span></a>
+                        <li id="information" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li>
-                        <li id="provider-type" title="Provider Types">
-                            <a href="{{ URL::Route('AdminProviderTypes') }}"><i class="fa fa-tags"></i> <span>{{ trans('customize.Types'); }}</span></a>
+                        <li id="provider-type" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li>
-                        <li id="document-type" title="Provider Types">
-                            <a href="{{ URL::Route('AdminDocumentTypes') }}"><i class="fa fa-file-text-o"></i> <span>{{ trans('customize.Documents'); }}</span></a>
+                        <li id="document-type" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li> --}}
-                        {{-- <li id="promo_code" title="Promo Code">
-                            <a href="{{ URL::Route('AdminPromoCodes') }}"><i class="fa fa-gift"></i> <span>{{ trans('customize.promo_codes'); }}</span></a>
+                        {{-- <li id="promo_code" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li>
-                        <li id="keywords" title="Kewords">
-                            <a href="{{ URL::Route('AdminKeywords') }}"><i class="fa fa-pencil-square"></i> <span>{{ trans('customize.Customize'); }}</span></a>
+                        <li id="keywords" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{ trans(''); }}</span></a>
                         </li>
-                        <li id="payments" title="Payment Details">
-                            <a href="{{ URL::Route('AdminPayment') }}"><i class="fa fa-money"></i> <span>{{trans('customize.payment_details');}}</span></a>
+                        <li id="payments" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{trans('');}}</span></a>
                         </li>
-                        <li id="settings" title="Setings">
-                            <a href="{{ URL::Route('AdminSettings') }}"><i class="fa fa-cogs"></i> <span>{{trans('customize.Settings');}}</span></a>
+                        <li id="settings" title="">
+                            <a href="{{ URL::Route('') }}"><i class=""></i> <span>{{trans('');}}</span></a>
                         </li> --}}
 
                     </ul>
