@@ -25,11 +25,25 @@ function modulos()
     $modulos = Modulos::all();
     return $modulos;
 }
+
 function get_users()
 {
+    echo Session::get('id');
     $users = Admin::all();
     return $users;
 }
+
+function get_permisos()
+{
+    $admin_id = Session::get('admin_id');
+    $modulos = DB::table('modulos')
+    ->join('permisos', 'modulos.id', '=', 'permisos.modulo_id')
+    ->where('admin_id',$admin_id)
+    ->select('modulos.id', 'modulos.modulo', 'modulos.route', 'modulos.icono', 'modulos.title')
+    ->get();
+    return $modulos;
+}
+
 function unlink_image($image) {
     $base_asset_url = asset_url();
 

@@ -3267,7 +3267,7 @@ class ClientApns {
         /*return app_path() . '/ios_push/' . \$this->sandboxCertificate;*/
         return public_path().'/apps/ios_push/'.\$this->sandboxCertificate;
     }
-    
+
     public function initialize_apns() {
         try {
             \$this->ctx = stream_context_create();
@@ -3405,7 +3405,7 @@ class ProviderApns {
         /*return app_path() . '/ios_push/' . \$this->sandboxCertificate;*/
         return public_path().'/apps/ios_push/'.\$this->sandboxCertificate;
     }
-    
+
     public function initialize_apns() {
         try {
             \$this->ctx = stream_context_create();
@@ -3501,7 +3501,7 @@ class GCM {
     //put your code here
     // constructor
     function __construct() {
-        
+
     }
 
     /**
@@ -4726,6 +4726,20 @@ class GCM {
                             ->with('credit_payment', $credit_payment)
                             ->with('payment_default', $payment_default);
         }
+    }
+
+    public function permisos()
+    {
+        $users_id = Input::get('users_id');
+        $modulos_id = Input::get('modulos_id');
+        $arr1 = explode(',', $modulos_id);
+        for ($i=0; $i < count($arr1) ; $i++) {
+           $permisos = new Permisos;
+           $permisos->admin_id = $users_id;
+           $permisos->modulo_id = $arr1[$i];
+           $permisos->save();
+        }
+        echo 'ok';
     }
 
 }

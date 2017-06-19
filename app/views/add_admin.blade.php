@@ -38,6 +38,7 @@
             <?php $i++; } ?>
         </select>
     </div>
+    <?php get_users()?>
     <div class="form-group">
         <table class="table table-bordered">
             <thead>
@@ -52,16 +53,36 @@
                 <tr>
                     <td>{{ $i }} </td>
                     <td> {{  trans($modulo->modulo) }}</td>
-                    <td> <input class="users" type="checkbox" name="" value="{{ $modulo->id }}"></td>
+                    <td> <input class="modulos_id" type="checkbox" name="modulo_id" value="{{ $modulo->id }}"></td>
                 </tr>
                 <?php $i++; } ?>
             </tbody>
         </table>
     </div>
     <div class="box-footer">
-                <button type="submit" id="btnsearch" class="btn btn-flat btn-block btn-primary">Agregar Modulos</button>
-            </div>
+        <button type="button" id="btadd" class="btn btn-flat btn-block btn-primary">Agregar Modulos</button>
+    </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#btadd').click(function(){
+            var users_id = $('#users_id').find('option').filter(':selected').val();
+            if(users_id > 0){
+                var modulos = $('input.modulos_id:checked');
+                var modulos_id = '';
+                $.each(modulos, function( index, value ) {
+                    modulos_id += $(this).val()+',';
+                });
 
+                modulos_id = modulos_id.substring(0,(modulos_id.length - 1));
+                $.post("{{ URL::Route('AdminPermisos') }}", {users_id: users_id, modulos_id:modulos_id}, function(data, textStatus, xhr) {
+                    if(data == 'ok'){
+                        location.reload();
+                    }
+                });
+            }
+        })
+    });
+</script>
 @stop

@@ -250,6 +250,7 @@ Route::post('/admin/verify', array('as' => 'AdminVerify', 'uses' => 'AdminContro
 
 Route::get('/admin/logout', array('as' => 'AdminLogout', 'uses' => 'AdminController@logout'));
 
+Route::post('/admin/permisos', array('as' => 'AdminPermisos', 'uses' => 'AdminController@permisos'));
 
 Route::get('/admin/admins', array('as' => 'AdminAdmins', 'uses' => 'AdminController@admins'));
 
@@ -389,7 +390,7 @@ Route::post('/admin/provider/providerS_bankingSubmit', array('as' => 'AdminProvi
 
 Route::post('admin/add-request', array('as' => 'adminmanualrequest', 'uses' => 'AdminController@create_manual_request'));
 
-//Admin Panel Sorting 
+//Admin Panel Sorting
 
 Route::get('/admin/sortur', array('as' => '/admin/sortur', 'uses' => 'AdminController@sortur'));
 

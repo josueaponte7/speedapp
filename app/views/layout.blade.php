@@ -121,7 +121,7 @@
                 <section class="sidebar">
                     <ul class="sidebar-menu">
 
-                        <?php  foreach (modulos() as $modulo) {?>
+                        <?php  foreach (get_permisos() as $modulo) {?>
                         <li id="dashboard" title="{{ $modulo->title }}">
                             <a href="{{ URL::Route($modulo->route) }}"><i class="{{ $modulo->icono }}"></i> <span>{{trans($modulo->modulo); }}</span></a>
                         </li>
